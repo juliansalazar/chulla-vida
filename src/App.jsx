@@ -51,7 +51,7 @@ function App() {
           onSubmit={handleSubmit}>
           <input
             type="email"
-            placeholder="Introduce tu email"
+            placeholder="Registra tu email"
             value={email}
             onChange={handleEmailChange}
             required
