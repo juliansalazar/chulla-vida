@@ -7,13 +7,9 @@
     <title>Chulla Vida - Mini Serie</title>
   </head>
   <body>
-    <form
-          name="landing-form"
-          method="POST"
-          data-netlify="true"
-          onSubmit={handleSubmit}>
+    <form name="landing-form" netlify hidden>
+      <input type="email" name="email" />
     </form>
-    
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
