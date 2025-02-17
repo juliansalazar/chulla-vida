@@ -44,7 +44,11 @@ function App() {
         <Youtube videoId="cLd0dN25i5g" opts={videoOptions}/>
         <h2>¡Únete a la espera!</h2>
         <h2><Countdown date={'2025-06-01T00:00:00'}/></h2>
-        <form onSubmit={handleSubmit}>
+        <form
+        name="landing-form"
+        method="POST"
+        data-netlify="true"
+        onSubmit={handleSubmit}>
           <input
             type="email"
             placeholder="Introduce tu email"
