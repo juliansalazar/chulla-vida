@@ -3,6 +3,7 @@ import './App.css'; // Estilos personalizados
 import Countdown from 'react-countdown';
 import Youtube from 'react-youtube';
 
+
 function App() {
   const [email, setEmail] = useState('');
 
@@ -60,7 +61,7 @@ function App() {
         <h2><Countdown date={'2025-06-01T00:00:00'}/></h2>
         <form
           name="landing-form"
-          method="POST"
+          action="POST"
           data-netlify="true"
           onSubmit={handleSubmit}>
           <input
@@ -69,6 +70,7 @@ function App() {
             value={email}
             onChange={handleEmailChange}
           />
+          <div data-netlify-recaptcha="true"></div>
           <button type="submit">Registrarme</button>
         </form>
       </section>
