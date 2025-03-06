@@ -14,6 +14,20 @@ function App() {
   // Manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const myForm = e.target.value;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+     .then(() => console.log("Form successfully submitted"))
+     .catch(error => alert(error));
+
+    document.querySelector("form").addEventListener("submit", handleSubmit);
+
     alert(`¡Gracias por registrarte, ${email}!`);
     setEmail('');
   };
@@ -54,7 +68,6 @@ function App() {
             placeholder="Registra tu email"
             value={email}
             onChange={handleEmailChange}
-            required
           />
           <button type="submit">Registrarme</button>
         </form>
