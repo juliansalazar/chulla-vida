@@ -21,7 +21,7 @@ function App() {
     })
      .then(response => {
       if (response.ok) {
-        alert('Gracias por suscribirse! Tu dirección de email es'+ email);
+        alert('Gracias por suscribirte! Tu dirección de email registrado es '+ email);
         setEmail('');
       } else {
         alert('Hubo un error al enviar el formulario.');
