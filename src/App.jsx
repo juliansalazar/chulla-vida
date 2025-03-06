@@ -3,7 +3,6 @@ import './App.css'; // Estilos personalizados
 import Countdown from 'react-countdown';
 import Youtube from 'react-youtube';
 
-
 function App() {
   const [email, setEmail] = useState('');
 
@@ -12,12 +11,14 @@ function App() {
     setEmail(e.target.value);
   };
 
-  // Manejar el envío del formulario
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Gracias por registrarte! Tu correo electrónico registrado es: ${email}`);
+  const handleSubmit = event => {
+    event.preventDefault();
+    // Enviar el formulario
+    alert(`��Gracias por suscribirse! Tu dirección de email es ${email}`);
     setEmail('');
   };
+  
+  
 
   const videoOptions = {
     playerVars: {
@@ -45,20 +46,17 @@ function App() {
         <Youtube videoId="cLd0dN25i5g" opts={videoOptions}/>
         <h2>¡Únete a la espera!</h2>
         <h2><Countdown date={'2025-06-01T00:00:00'}/></h2>
-        <form
-          name="landing-form"
-          method="POST"
-          data-netlify="true"
-          onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="Registra tu email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-          <div data-netlify-recaptcha="true"></div>
-          <button type="submit">Registrarme</button>
+        
+        <form onSubmit={handleSubmit} name="landing-form" method="POST" data-netlify="true">
+          <p>
+            <label>Your Email: <input type="email" name="email" onChange={handleEmailChange} /></label>
+          </p>
+          <p>
+            <button type="submit">Send</button>
+          </p>
         </form>
+        
+
       </section>
 
       <footer>
