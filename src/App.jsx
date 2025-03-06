@@ -13,8 +13,20 @@ function App() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    // Enviar el formulario
-    alert(`��Gracias por suscribirse! Tu dirección de email es ${email}`);
+    // Enviar formulario a Netlify (para almacenar la dirección de email)
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ 'form-name': 'landing-form', email }),
+    })
+     .then(response => {
+      if (response.ok) {
+        alert('Gracias por suscribirse! Tu dirección de email es'+ email);
+        setEmail('');
+      } else {
+        alert('Hubo un error al enviar el formulario.');
+      }
+    })
     setEmail('');
   };
   
